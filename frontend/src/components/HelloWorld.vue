@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <p>{{status}}</p>
+    <h1>{{status}}</h1>
     <table>
       <thead>
         <tr>
@@ -11,15 +11,9 @@
       </thead>
       <tbody>
         <tr v-for="(data, index) in table_data" :key="index">
-          <td>
-            {{ data.name }}
-          </td>
-          <td>
-            {{ data.birth }}
-          </td>
-          <td>
-            {{ data.score }}
-          </td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.birth }}</td>
+          <td>{{ data.score }}</td>
         </tr>
       </tbody>
     </table>
