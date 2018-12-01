@@ -4,9 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 
-Vue.prototype.$http = axios
-Vue.config.productionTip = false
 
+Vue.config.productionTip = false
+Vue.prototype.$ajax = axios
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
