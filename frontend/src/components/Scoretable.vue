@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div id="container" class="hello">
     <h2>{{status}}</h2>
     <table class="table">
       <thead>
@@ -51,23 +51,13 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1,
-  h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
+  #container {
+    position: relative;
+    line-height: 20px;
+    padding: 1.2%;
+    margin: 20px 15%;
+    background: #1111;
+    min-height: 81vh;
   }
 
 </style>
