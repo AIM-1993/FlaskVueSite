@@ -18,13 +18,10 @@ api = Api(app)
 
 todos = {}
 
-
-
 class ArticleForm(Form):
     name = StringField('Name', [validators.Length(min=1, max=100)])
     birth = DateTimeField('Birth', [validators.Length(min=30)], format="%Y-%m")
     score = IntegerField('Score', [validators.Length(min=0)])
-
 
 
 class Helloworld(Resource):
@@ -41,8 +38,6 @@ class Helloworld(Resource):
     def post(self):
         some_json = request.get_json()
         return {'you sent': some_json}
-
-
 
 
 api.add_resource(Helloworld, '/')

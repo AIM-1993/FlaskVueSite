@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{status}}</h1>
-    <table>
+    <h2>{{status}}</h2>
+    <table class="table">
       <thead>
         <tr>
           <th>Name</th>

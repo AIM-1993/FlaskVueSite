@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <HelloWorld/>
+    <Navbar/>
+    <Scoretable/>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Navbar from './components/Navbar';
+import Scoretable from './components/Scoretable';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Navbar,
+    Scoretable
   }
 }
 </script>
