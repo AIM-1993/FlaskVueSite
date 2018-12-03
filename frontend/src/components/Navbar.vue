@@ -5,8 +5,8 @@
       <li v-for="(item, index) in navbar_items" v-html="item.message" :key="index"></li>
     </ul>
   </div>
-
 </template>
+
 
 <script>
   export default {
@@ -17,10 +17,10 @@
             message: '<a href="#">Home</a>'
           },
           {
-            message: '<a href="#">Features</a>'
+            message: '<a href="#">Dashboard</a>'
           },
           {
-            message: '<a href="#">Pricing</a>'
+            message: '<a href="#">About</a>'
           }
         ]
       }
@@ -30,9 +30,18 @@
 </script>
 
 
-<style scoped>
+<style>
   #nav {
-    background: #050404;
+    background: #0d0d0d;
     padding: 12px;
+    
+  }
+
+  #nav a {
+    color:azure;
+  }
+
+  #nav a:hover {
+	  color: aqua;
   }
 </style>

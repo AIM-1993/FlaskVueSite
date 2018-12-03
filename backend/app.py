@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 from flask_cors import CORS
@@ -30,8 +31,12 @@ class Helloworld(Resource):
         cur = mysql.connection.cursor()
         result_data = cur.execute("SELECT * FROM flaskvuesite")
         data = cur.fetchall()
+        with open('./data.json', 'r', encoding='utf-8') as f:
+            table = json.load(f)
+            # print(table)
+            f.close()
         return jsonify({
-            'result': "Score Table",
+            'table': table,
             'data': data
         })
     
