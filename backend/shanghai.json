@@ -1,0 +1,113 @@
+{
+    "resultcode": "200",
+    "reason": "successed!",
+    "result": {
+        "sk": {
+            "temp": "14",
+            "wind_direction": "西北风",
+            "wind_strength": "1级",
+            "humidity": "89%",
+            "time": "10:40"
+        },
+        "today": {
+            "temperature": "11℃~18℃",
+            "weather": "小雨",
+            "weather_id": {
+                "fa": "07",
+                "fb": "07"
+            },
+            "wind": "北风3-5级",
+            "week": "星期二",
+            "city": "上海",
+            "date_y": "2018年12月04日",
+            "dressing_index": "较冷",
+            "dressing_advice": "建议着厚外套加毛衣等服装。年老体弱者宜着大衣、呢外套加羊毛衫。",
+            "uv_index": "最弱",
+            "comfort_index": "",
+            "wash_index": "不宜",
+            "travel_index": "较不宜",
+            "exercise_index": "较不宜",
+            "drying_index": ""
+        },
+        "future": [
+            {
+                "temperature": "11℃~18℃",
+                "weather": "小雨",
+                "weather_id": {
+                    "fa": "07",
+                    "fb": "07"
+                },
+                "wind": "北风3-5级",
+                "week": "星期二",
+                "date": "20181204"
+            },
+            {
+                "temperature": "8℃~14℃",
+                "weather": "多云转中雨",
+                "weather_id": {
+                    "fa": "01",
+                    "fb": "08"
+                },
+                "wind": "北风微风",
+                "week": "星期三",
+                "date": "20181205"
+            },
+            {
+                "temperature": "5℃~13℃",
+                "weather": "小雨",
+                "weather_id": {
+                    "fa": "07",
+                    "fb": "07"
+                },
+                "wind": "东风微风",
+                "week": "星期四",
+                "date": "20181206"
+            },
+            {
+                "temperature": "4℃~9℃",
+                "weather": "小雨",
+                "weather_id": {
+                    "fa": "07",
+                    "fb": "07"
+                },
+                "wind": "北风4-5级",
+                "week": "星期五",
+                "date": "20181207"
+            },
+            {
+                "temperature": "5℃~7℃",
+                "weather": "小雨转中雨",
+                "weather_id": {
+                    "fa": "07",
+                    "fb": "08"
+                },
+                "wind": "北风4-5级",
+                "week": "星期六",
+                "date": "20181208"
+            },
+            {
+                "temperature": "8℃~14℃",
+                "weather": "多云转中雨",
+                "weather_id": {
+                    "fa": "01",
+                    "fb": "08"
+                },
+                "wind": "北风微风",
+                "week": "星期日",
+                "date": "20181209"
+            },
+            {
+                "temperature": "8℃~14℃",
+                "weather": "多云转中雨",
+                "weather_id": {
+                    "fa": "01",
+                    "fb": "08"
+                },
+                "wind": "北风微风",
+                "week": "星期一",
+                "date": "20181210"
+            }
+        ]
+    },
+    "error_code": 0
+}

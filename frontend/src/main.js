@@ -5,6 +5,7 @@ import App from './App'
 import axios from 'axios'
 
 
+
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
 /* eslint-disable no-new */

@@ -25,7 +25,8 @@ class ArticleForm(Form):
     score = IntegerField('Score', [validators.Length(min=0)])
 
 
-class Helloworld(Resource):
+class Chengdu(Resource):
+    
     def get(self):
         form = ArticleForm(request.form)
         cur = mysql.connection.cursor()
@@ -35,17 +36,32 @@ class Helloworld(Resource):
             table = json.load(f)
             # print(table)
             f.close()
+        # 数据备份
+        with open('./data2.json', 'w', encoding="utf-8") as f:
+            json.dump(table, f)
+            print('Opened.')
+            f.close()
         return jsonify({
             'table': table,
             'data': data
         })
+
+
+class Shanghai(Resource):
     
-    def post(self):
-        some_json = request.get_json()
-        return {'you sent': some_json}
+    def get(self):
+        with open('./shanghai.json', 'r', encoding="utf-8") as f:
+            table = json.load(f)
+            f.close()
+
+        return jsonify({
+            'table': table
+        })
 
 
-api.add_resource(Helloworld, '/')
+api.add_resource(Chengdu, '/v1/chengdu-weather')
+api.add_resource(Shanghai, '/v1/shanghai-weather')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
