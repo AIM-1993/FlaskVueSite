@@ -28,11 +28,11 @@
         </tr>
       </tbody>
     </table>
-    <div width="20%" height="20%">
+    <div id="chart">
       <canvas id="myChart"></canvas>
     </div>
     <input class="input form-control medium-6 cell" v-model="input_city" type="text" placeholder="请输入想要查询的城市名"/>
-    <button @click="loadData" class="primary button">获取天气</button>
+    <button id="submit" @click="loadData" class="primary button">获取天气</button>
 
   </div>
 </template>
@@ -152,8 +152,8 @@
   }
 
   #chart {
-    width: 20%;
-    height: 20%;
+    width: 50%;
+    height: 50%;
   }
 
 </style>
