@@ -8,7 +8,7 @@
       <li>成都</li>
       <li>上海</li>
     </ul>
-    <table id="table" class="table hover unstriped">
+    <table id="table" class="table unstriped">
       <thead>
         <tr>
           <th>日期</th>
@@ -49,7 +49,7 @@
     },
 
     created: function () {
-      this.city = "天气查询";
+      this.city = "城市天气数据查询";
     },
 
     methods: {
@@ -68,7 +68,7 @@
             console.log(this.status);
           });
 
-        if ((this.input_city === '') || (this.input_city in ['成都', '上海'] === false)) {
+        if ((this.input_city === '')) {
           alert("请输入正确内容！");
         } else {
             this.loadChart();
@@ -141,17 +141,13 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
-  table th {
-    text-align: center;
-  }
 
-  table tr {
-    text-align: center;
-  }
-
-
-  tr:hover {
+  thead tr {
     background:tan;
+  }
+
+
+  tbody tr:hover {
     color:steelblue;
   }
 
