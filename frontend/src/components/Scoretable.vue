@@ -1,7 +1,7 @@
 <template>
   <div id="container" class="hello">
     <h2>{{status}}</h2>
-    <label class="label">数据来源：聚合数据API</label>
+    <label class="label">最近7天天气情况</label>
     <hr class="hr"/>
     <table id="table" class="table hover unstriped">
       <thead>
@@ -81,10 +81,10 @@
     margin: 20px 15%;
     background: #1111;
     min-height: 84vh;
+    font-family: sans-serif;
   }
 
   h2 {
-    text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
@@ -98,7 +98,7 @@
 
 
   tr:hover {
-    background:seashell;
+    background:tan;
     color:steelblue;
   }
 

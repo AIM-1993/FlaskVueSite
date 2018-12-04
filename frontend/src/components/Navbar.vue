@@ -13,13 +13,13 @@
       return {
         navbar_items: [
           {
-            message: '<a href="#">Home</a>'
+            message: '<a href="#">天气情况查询</a>'
           },
           {
             message: '<a href="#">Dashboard</a>'
           },
           {
-            message: '<a href="#">About</a>'
+            message: '<a href="#">关于</a>'
           }
         ]
       }
