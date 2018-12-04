@@ -10,6 +10,7 @@
           <th>星期</th>
           <th>天气情况</th>
           <th>气温</th>
+          <th>风力</th>
         </tr>
       </thead>
       <tbody>
@@ -18,11 +19,13 @@
           <td>{{ data.week }}</td>
           <td>{{ data.weather }}</td>
           <td>{{ data.temperature }}</td>
+          <td>{{ data.wind }}</td>
         </tr>
       </tbody>
     </table>
     <button @click="loadChengDuData" class="primary button">获取成都天气</button>
     <button @click="loadShanghaiData" class="primary button">获取上海天气</button>
+    <canvas id="myChart"></canvas>
   </div>
 
 </template>
@@ -37,35 +40,56 @@
       }
     },
 
-    created: function () {
-    },
-
-    methods: {
-      loadChengDuData: function () {
-        this.status = "loading...";
-        var table = this;
-        this.$ajax.get('http://localhost:5000/v1/chengdu-weather')
-          .then((response) => {
-            this.status = "成都"
-            this.table_data = response.data.table.result.future
-            console.log(response.data.table.result);
-          })
-          .catch((error) => {
-            this.status = "Error occured." + error;
-          })
-      },
-      loadShanghaiData: function () {
-        this.status = "loading...";
-        var table = this;
-        this.$ajax.get('http:///localhost:5000/v1/shanghai-weather')
+  methods: {
+    loadChengDuData: function () {
+      this.status = "loading...";
+      var table = this;
+      this.$ajax.get('http://localhost:5000/v1/chengdu-weather')
         .then((response) => {
-          this.status = "上海"
+          this.status = "成都"
           this.table_data = response.data.table.result.future
-          console.log('Shanghai');
+          console.log(response.data.table.result);
         })
         .catch((error) => {
           this.status = "Error occured." + error;
-        })
+        });
+      this.loadChart();
+    },
+
+    loadShanghaiData: function () {
+      this.status = "loading...";
+      var table = this;
+      this.$ajax.get('http:///localhost:5000/v1/shanghai-weather')
+      .then((response) => {
+        this.status = "上海"
+        this.table_data = response.data.table.result.future
+        console.log('Shanghai');
+      })
+      .catch((error) => {
+        this.status = "Error occured." + error;
+      })
+    },
+
+    loadChart: function () {
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: ["星期二", "星期三", "星期四", "星期五", "星期六", "星期天", "星期一"],
+              datasets: [{
+                  label: "最低平均气温",
+                  backgroundColor: 'rgba(255, 99, 120, 0.75)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [8, 7, 4, 3, 3, 7, 3],
+              }]
+          },
+
+          // Configuration options go here
+          options: {}
+        });
       }
     }
   }
