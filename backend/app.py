@@ -19,19 +19,30 @@ api = Api(app)
 
 todos = {}
 
-class ArticleForm(Form):
+# 创建用户表
+class UserForm(Form):
     name = StringField('Name', [validators.Length(min=1, max=100)])
     birth = DateTimeField('Birth', [validators.Length(min=30)], format="%Y-%m")
     score = IntegerField('Score', [validators.Length(min=0)])
 
 
-class Chengdu(Resource):
-    
+# 用户表API
+class UserList(Resource):
+
     def get(self):
-        form = ArticleForm(request.form)
+        form = UserForm(request.form)
         cur = mysql.connection.cursor()
         result_data = cur.execute("SELECT * FROM flaskvuesite")
         data = cur.fetchall()
+
+        return jsonify({
+            'data': data
+        })
+
+# 成都市数据API（暂时使用）
+class Chengdu(Resource):
+    
+    def get(self):
         with open('./data.json', 'r', encoding='utf-8') as f:
             table = json.load(f)
             # print(table)
@@ -41,12 +52,12 @@ class Chengdu(Resource):
             json.dump(table, f)
             print('Opened.')
             f.close()
+
         return jsonify({
-            'table': table,
-            'data': data
+            'table': table
         })
 
-
+# 上海市数据API（暂时使用）
 class Shanghai(Resource):
     
     def get(self):
@@ -58,9 +69,9 @@ class Shanghai(Resource):
             'table': table
         })
 
-
-api.add_resource(Chengdu, '/v1/chengdu-weather')
-api.add_resource(Shanghai, '/v1/shanghai-weather')
+api.add_resource(UserList, '/v1/userlist')
+api.add_resource(Chengdu, '/v1/成都')
+api.add_resource(Shanghai, '/v1/上海')
 
 
 if __name__ == '__main__':

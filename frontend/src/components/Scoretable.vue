@@ -1,8 +1,13 @@
 <template>
   <div id="container" class="hello">
-    <h2>{{status}}</h2>
+    <h2>{{city}}</h2>
     <label class="label">最近7天天气情况</label>
     <hr class="hr"/>
+    <label for="">目前能够查询的城市仅有：</label>
+    <ul>
+      <li>成都</li>
+      <li>上海</li>
+    </ul>
     <table id="table" class="table hover unstriped">
       <thead>
         <tr>
@@ -23,52 +28,67 @@
         </tr>
       </tbody>
     </table>
-    <button @click="loadChengDuData" class="primary button">获取成都天气</button>
-    <button @click="loadShanghaiData" class="primary button">获取上海天气</button>
-    <canvas id="myChart"></canvas>
-  </div>
+    <div width="20%" height="20%">
+      <canvas id="myChart"></canvas>
+    </div>
+    <input class="input form-control medium-6 cell" v-model="input_city" type="text" placeholder="请输入想要查询的城市名"/>
+    <button @click="loadData" class="primary button">获取天气</button>
 
+  </div>
 </template>
 
 <script>
   export default {
     data() {
       return {
-        status: '请选择要获取的城市',
+        status: '',
         city: '',
+        input_city: '',
         table_data: '',
       }
     },
 
-  methods: {
-    loadChengDuData: function () {
-      this.status = "loading...";
-      var table = this;
-      this.$ajax.get('http://localhost:5000/v1/chengdu-weather')
-        .then((response) => {
-          this.status = "成都"
-          this.table_data = response.data.table.result.future
-          console.log(response.data.table.result);
-        })
-        .catch((error) => {
-          this.status = "Error occured." + error;
-        });
-      this.loadChart();
+    created: function () {
+      this.city = "天气查询";
     },
 
-    loadShanghaiData: function () {
-      this.status = "loading...";
-      var table = this;
-      this.$ajax.get('http:///localhost:5000/v1/shanghai-weather')
-      .then((response) => {
-        this.status = "上海"
-        this.table_data = response.data.table.result.future
-        console.log('Shanghai');
-      })
-      .catch((error) => {
-        this.status = "Error occured." + error;
-      })
-    },
+    methods: {
+      loadData: function () {
+        this.status = "数据获取成功!";
+        console.log(this.status);
+        var table = this;
+        this.$ajax.get('http://localhost:5000/v1/' + this.input_city)
+          .then((response) => {
+            this.status = this.city;
+            this.table_data = response.data.table.result.future;
+            console.log(response.data.table.result);
+          })
+          .catch((error) => {
+            this.status = "Error occured." + error;
+            console.log(this.status);
+          });
+
+        if ((this.input_city === '') || (this.input_city in ['成都', '上海'] === false)) {
+          alert("请输入正确内容！");
+        } else {
+            this.loadChart();
+        }
+
+      },
+
+    // loadShanghaiData: function () {
+    //   this.status = "loading...";
+    //   var table = this;
+    //   this.$ajax.get('http:///localhost:5000/v1/shanghai-weather')
+    //   .then((response) => {
+    //     this.status = this.city;
+    //     this.table_data = response.data.table.result.future;
+    //     console.log('Shanghai');
+    //   })
+    //   .catch((error) => {
+    //     this.status = "Error occured." + error;
+    //   })
+    // },
 
     loadChart: function () {
       var ctx = document.getElementById('myChart').getContext('2d');
@@ -78,13 +98,22 @@
 
           // The data for our dataset
           data: {
+              title: "温度走势图",
               labels: ["星期二", "星期三", "星期四", "星期五", "星期六", "星期天", "星期一"],
-              datasets: [{
-                  label: "最低平均气温",
-                  backgroundColor: 'rgba(255, 99, 120, 0.75)',
-                  borderColor: 'rgb(255, 99, 132)',
+              datasets: [
+                {
+                  label: "最低气温",
+                  backgroundColor: 'rgba(	0, 191, 255, 0.75)',
+                  borderColor: 'rgb(0, 191, 255)',
                   data: [8, 7, 4, 3, 3, 7, 3],
-              }]
+                },
+                {
+                  label: "最高气温",
+                  backgroundColor: 'rgba(220, 20, 60, 0.75)',
+                  borderColor: 'rgba(220, 20, 60, 0.75)',
+                  data: [12, 11, 10, 8, 6, 11, 8],
+                },
+              ]
           },
 
           // Configuration options go here
