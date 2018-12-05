@@ -3,26 +3,26 @@
 	"reason":"查询成功",
 	"result":{
 		"sk":{
-			"temp":"11",
-			"wind_direction":"东风",
-			"wind_strength":"1级",
-			"humidity":"61%",
-			"time":"09:39"
+			"temp":"10",
+			"wind_direction":"北风",
+			"wind_strength":"3级",
+			"humidity":"76%",
+			"time":"08:57"
 		},
 		"today":{
-			"temperature":"8℃~12℃",
-			"weather":"晴转多云",
+			"temperature":"7℃~11℃",
+			"weather":"阴",
 			"weather_id":{
-				"fa":"00",
-				"fb":"01"
+				"fa":"02",
+				"fb":"02"
 			},
 			"wind":"持续无风向微风",
-			"week":"星期二",
+			"week":"星期三",
 			"city":"成都",
-			"date_y":"2018年12月04日",
+			"date_y":"2018年12月05日",
 			"dressing_index":"较冷",
 			"dressing_advice":"建议着厚外套加毛衣等服装。年老体弱者宜着大衣、呢外套加羊毛衫。",
-			"uv_index":"中等",
+			"uv_index":"最弱",
 			"comfort_index":"",
 			"wash_index":"较适宜",
 			"travel_index":"较适宜",
@@ -30,41 +30,30 @@
 			"drying_index":""
 		},
 		"future":{
-			"day_20181204":{
-				"temperature":"8℃~12℃",
-				"weather":"晴转多云",
-				"weather_id":{
-					"fa":"00",
-					"fb":"01"
-				},
-				"wind":"持续无风向微风",
-				"week":"星期二",
-				"date":"20181204"
-			},
 			"day_20181205":{
 				"temperature":"7℃~11℃",
-				"weather":"多云转晴",
+				"weather":"阴",
 				"weather_id":{
-					"fa":"01",
-					"fb":"00"
+					"fa":"02",
+					"fb":"02"
 				},
 				"wind":"持续无风向微风",
 				"week":"星期三",
 				"date":"20181205"
 			},
 			"day_20181206":{
-				"temperature":"4℃~10℃",
-				"weather":"阴转多云",
+				"temperature":"4℃~11℃",
+				"weather":"阴转小雨",
 				"weather_id":{
 					"fa":"02",
-					"fb":"01"
+					"fb":"07"
 				},
 				"wind":"持续无风向微风",
 				"week":"星期四",
 				"date":"20181206"
 			},
 			"day_20181207":{
-				"temperature":"3℃~8℃",
+				"temperature":"3℃~5℃",
 				"weather":"小雨",
 				"weather_id":{
 					"fa":"07",
@@ -75,7 +64,7 @@
 				"date":"20181207"
 			},
 			"day_20181208":{
-				"temperature":"3℃~6℃",
+				"temperature":"2℃~5℃",
 				"weather":"小雨",
 				"weather_id":{
 					"fa":"07",
@@ -86,18 +75,18 @@
 				"date":"20181208"
 			},
 			"day_20181209":{
-				"temperature":"7℃~11℃",
-				"weather":"多云转晴",
+				"temperature":"2℃~6℃",
+				"weather":"小雨",
 				"weather_id":{
-					"fa":"01",
-					"fb":"00"
+					"fa":"07",
+					"fb":"07"
 				},
 				"wind":"持续无风向微风",
 				"week":"星期日",
 				"date":"20181209"
 			},
 			"day_20181210":{
-				"temperature":"3℃~8℃",
+				"temperature":"3℃~5℃",
 				"weather":"小雨",
 				"weather_id":{
 					"fa":"07",
@@ -106,6 +95,17 @@
 				"wind":"持续无风向微风",
 				"week":"星期一",
 				"date":"20181210"
+			},
+			"day_20181211":{
+				"temperature":"2℃~5℃",
+				"weather":"小雨",
+				"weather_id":{
+					"fa":"07",
+					"fb":"07"
+				},
+				"wind":"持续无风向微风",
+				"week":"星期二",
+				"date":"20181211"
 			}
 		}
 	},
