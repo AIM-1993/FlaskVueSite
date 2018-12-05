@@ -78,7 +78,7 @@ class Shanghai(Resource):
 
     # （常规采用requests包进行数据获取）
     # def get(self):
-    #     r = requests.get("http://v.juhe.cn/weather/index?format=2&cityname=成都&key=*****************************")
+    #     r = requests.get("http://v.juhe.cn/weather/index?format=2&cityname=上海&key=*****************************")
     #     table = r.json()
 
     #     return jsonify({

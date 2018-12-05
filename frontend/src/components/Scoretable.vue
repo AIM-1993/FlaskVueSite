@@ -3,11 +3,14 @@
     <h2>{{city}}</h2>
     <label class="label">最近7天天气情况</label>
     <hr class="hr"/>
-    <label for="">目前能够查询的城市仅有：</label>
-    <ul>
-      <li>成都</li>
-      <li>上海</li>
-    </ul>
+    <div class="grid-x grid-padding-x">
+    <fieldset class="large-5 cell">
+      <legend>选择城市</legend>
+      <input type="radio" name="pokemon" v-model="input_city" value="成都" id="pokemonRed" required><label for="pokemonRed">成都</label>
+      <input type="radio" name="pokemon" v-model="input_city" value="上海" id="pokemonBlue"><label for="pokemonBlue">上海</label>
+    </fieldset>
+    </div>
+    <button id="submit" @click="loadData" class="primary button">获取天气</button>
     <table id="table" class="table unstriped">
       <thead>
         <tr>
@@ -31,8 +34,6 @@
     <div id="chart">
       <canvas id="myChart"></canvas>
     </div>
-    <input class="input form-control medium-6 cell" v-model="input_city" type="text" placeholder="请输入想要查询的城市名"/>
-    <button id="submit" @click="loadData" class="primary button">获取天气</button>
 
   </div>
 </template>
@@ -75,20 +76,6 @@
         }
 
       },
-
-    // loadShanghaiData: function () {
-    //   this.status = "loading...";
-    //   var table = this;
-    //   this.$ajax.get('http:///localhost:5000/v1/shanghai-weather')
-    //   .then((response) => {
-    //     this.status = this.city;
-    //     this.table_data = response.data.table.result.future;
-    //     console.log('Shanghai');
-    //   })
-    //   .catch((error) => {
-    //     this.status = "Error occured." + error;
-    //   })
-    // },
 
     loadChart: function () {
       var ctx = document.getElementById('myChart').getContext('2d');
