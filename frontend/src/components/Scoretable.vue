@@ -20,7 +20,7 @@
       <button id="submit" @click="loadData" class="primary button">获取天气</button>
     </fieldset>
     </div>
-    
+    <!--近期天气情况表-->
     <table id="table" class="table unstriped">
       <thead>
         <tr>
@@ -42,10 +42,41 @@
       </tbody>
     </table>
 
+    <!--图表-->
     <div id="chart" v-show="cityChoosed">
       <canvas id="myChart"></canvas>
     </div>
 
+    <!--着装建议表-->
+    <div id="clothing" v-show="cityChoosed">
+      <h3>今日天气</h3>
+      <label class="label" for="clothing">{{ todayData.date_y }}</label>
+      <table id="clothing-table" class="table unstriped">
+        <thead>
+          <th>天气情况</th>
+          <th>贴士</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>紫外线强度</td>
+            <td>{{ todayData.uv_index }}</td>
+          <tr>
+          <tr>
+            <td>室外温度</td>
+            <td>{{ todayData.temperature }}</td>
+          </tr>
+          <tr>
+            <td>旅行</td>
+            <td>{{ todayData.travel_index }}</td>
+          </tr>
+          <tr>
+            <td>着装建议</td>
+            <td>{{ todayData.dressing_advice }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
   </div>
 </template>
 
@@ -58,7 +89,7 @@
         tableTitle: '',
         inputedCity: '',
         tableData: '',
-        test: '',
+        todayData: '',
         HT: '',
         LT: '',
         cityChoosed: false,
@@ -75,12 +106,14 @@
         var table = this;
         this.$ajax.get('http://localhost:5000/v1/' + this.inputedCity)
           .then((response) => {
-            this.status = "OK";
-            this.cityChoosed = true;
-            this.tableTitle = this.inputedCity;
-            this.tableData = response.data.table.result.future;
-            this.HT = response.data.HT;
-            this.LT = response.data.LT;
+            this.status = "OK"
+            this.cityChoosed = true
+            this.tableTitle = this.inputedCity
+            this.tableData = response.data.table.result.future
+            this.todayData = response.data.table.result.today
+            console.log(this.todayData);
+            this.HT = response.data.HT
+            this.LT = response.data.LT
             if (this.inputedCity === '') {
               this.warning();
           } else {
@@ -153,7 +186,6 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
-
   thead tr {
     background:tan;
   }
@@ -166,6 +198,18 @@
   #chart {
     width: 50%;
     height: 50%;
+    border: solid;
+    display: inline-block;
+  }
+
+  #clothing {
+    margin: 0% 5%;
+    position: absolute;
+    display: inline-block;
+  }
+
+  #clothing-table {
+    margin: 2%;
   }
 
 </style>
