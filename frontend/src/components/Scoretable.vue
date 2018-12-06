@@ -4,8 +4,8 @@
     <label class="label">最近7天天气情况</label>
     <!--Alert-->
     <div class="callout alert" data-closable v-if="warningFlag">
-      <h5>未选择城市!</h5>
-      <p>请在下方点选需要查询的城市名称。</p>
+      <h5>未选择城市或网络错误!</h5>
+      <p>请在下方点选需要查询的城市名称，并重试。</p>
       <button @click="resetWarningFlag" class="close-button" aria-label="Dismiss alert" type="button">
         <span>&times;</span>
       </button>
@@ -115,12 +115,13 @@
             this.HT = response.data.HT
             this.LT = response.data.LT
             if (this.inputedCity === '') {
-              this.warning();
+              console.log("excuted.");
           } else {
             this.loadChart();
           }
           })
           .catch((error) => {
+            this.warningFlag = true;
             this.status = "Error occured." + error;
             console.log(this.status);
           });
@@ -198,7 +199,6 @@
   #chart {
     width: 50%;
     height: 50%;
-    border: solid;
     display: inline-block;
   }
 
