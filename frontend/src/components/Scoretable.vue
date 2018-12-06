@@ -11,7 +11,7 @@
       </button>
     </div>
 
-    <hr class="hr"/>
+    <hr class="hr"/> 
     <div class="grid-x grid-padding-x">
     <fieldset class="large-5 cell">
       <legend>选择城市</legend>
@@ -32,8 +32,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(data, index) in table_data" :key="index">
-          <td>{{data.date}}</td>
+        <tr v-for="(data, index) in tableData" :key="index">
+          <td>{{ data.date }}</td>
           <td>{{ data.week }}</td>
           <td>{{ data.weather }}</td>
           <td>{{ data.temperature }}</td>
@@ -50,13 +50,17 @@
 </template>
 
 <script>
+  import Chart from 'chart.js';
   export default {
     data() {
       return {
         status: '',
         tableTitle: '',
         inputedCity: '',
-        table_data: '',
+        tableData: '',
+        test: '',
+        HT: '',
+        LT: '',
         cityChoosed: false,
         warningFlag: false
       }
@@ -65,28 +69,29 @@
     created: function () {
       this.tableTitle = "城市天气数据查询";
     },
-
+  
     methods: {
       loadData: function () {
-        console.log(this.status);
         var table = this;
         this.$ajax.get('http://localhost:5000/v1/' + this.inputedCity)
           .then((response) => {
             this.status = "OK";
             this.cityChoosed = true;
             this.tableTitle = this.inputedCity;
-            this.table_data = response.data.table.result.future;
-            console.log(response.data.table.result);
+            this.tableData = response.data.table.result.future;
+            this.HT = response.data.HT;
+            this.LT = response.data.LT;
+            if (this.inputedCity === '') {
+              this.warning();
+          } else {
+            this.loadChart();
+          }
           })
           .catch((error) => {
             this.status = "Error occured." + error;
             console.log(this.status);
           });
-          if (this.inputedCity === '') {
-            this.warning();
-          } else {
-          this.loadChart();
-          }
+
         },
 
       warning: function () {
@@ -96,7 +101,7 @@
       resetWarningFlag: function () {
         this.warningFlag = false;
       },
-
+  
       loadChart: function () {
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
@@ -112,13 +117,13 @@
                     label: "最低气温",
                     backgroundColor: 'rgba(	0, 191, 255, 0.75)',
                     borderColor: 'rgb(0, 191, 255)',
-                    data: [8, 7, 4, 3, 3, 7, 3],
+                    data: this.LT,
                   },
                   {
                     label: "最高气温",
                     backgroundColor: 'rgba(220, 20, 60, 0.75)',
                     borderColor: 'rgba(220, 20, 60, 0.75)',
-                    data: [12, 11, 10, 8, 6, 11, 8],
+                    data: this.HT,
                   },
                 ]
             },

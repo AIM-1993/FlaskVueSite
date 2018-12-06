@@ -49,7 +49,9 @@ class Chengdu(Resource):
             f.close()
 
         return jsonify({
-            'table': table
+            'table': table,
+            'HT': [11, 11, 5, 5, 6, 5, 5],
+            'LT': [7, 4, 3, 2, 2, 3, 2]
         })
 
 
@@ -73,7 +75,9 @@ class Shanghai(Resource):
             f.close()
 
         return jsonify({
-            'table': table
+            'table': table,
+            'HT': [13, 13, 9, 6, 6, 9, 13],
+            'LT': [9, 5, 3, 4, 6, 3, 5]
         })
 
     # （常规采用requests包进行数据获取）
