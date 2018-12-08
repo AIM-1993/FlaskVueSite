@@ -50,7 +50,6 @@
     <!--着装建议表-->
     <div id="clothing" v-show="cityChoosed">
       <h3>今日天气</h3>
-      <label class="label" for="clothing">{{ todayData.date_y }}</label>
       <table id="clothing-table" class="table unstriped">
         <thead>
           <th>天气情况</th>
