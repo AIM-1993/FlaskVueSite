@@ -13,7 +13,7 @@
 
     <hr class="hr"/> 
     <div class="grid-x grid-padding-x">
-    <fieldset class="large-5 cell">
+    <fieldset>
       <legend>选择城市</legend>
       <input type="radio" name="pokemon" v-model="inputedCity" value="成都" id="pokemonRed" required><label for="pokemonRed">成都</label>
       <input type="radio" name="pokemon" v-model="inputedCity" value="上海" id="pokemonBlue"><label for="pokemonBlue">上海</label>
@@ -172,6 +172,49 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+@media screen and (max-width: 768px) {
+    #container {
+    position: relative;
+    line-height: 20px;
+    padding: 1.2%;
+    margin: 20px 15%;
+    background: #1111;
+    min-height: 86vh;
+    font-family: sans-serif;
+  }
+
+  h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  thead tr {
+    background:tan;
+  }
+
+
+  tbody tr:hover {
+    color:steelblue;
+  }
+
+  #chart {
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+  }
+
+  #clothing {
+    margin: 0% 5%;
+    position: absolute;
+    display: inline-block;
+  }
+
+  #clothing-table {
+    margin: 2%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
   #container {
     position: relative;
     line-height: 20px;
@@ -210,5 +253,48 @@
   #clothing-table {
     margin: 2%;
   }
+}
+
+@media screen and (min-width: 992px){
+    #container {
+    position: relative;
+    line-height: 20px;
+    padding: 1.2%;
+    margin: 20px 15%;
+    background: #1111;
+    min-height: 86vh;
+    font-family: sans-serif;
+  }
+
+  h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  thead tr {
+    background:tan;
+  }
+
+
+  tbody tr:hover {
+    color:steelblue;
+  }
+
+  #chart {
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+  }
+
+  #clothing {
+    margin: 0% 5%;
+    position: absolute;
+    display: inline-block;
+  }
+
+  #clothing-table {
+    margin: 2%;
+  }
+}
+
 
 </style>
