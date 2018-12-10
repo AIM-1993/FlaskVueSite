@@ -196,13 +196,11 @@
   }
 
   #chart {
-    width: 50%;
-    display: inline-block;
+
   }
 
   #clothing {
-    margin: 0 5%;
-    position: absolute;
+    display: none;
   }
 }
 
@@ -212,7 +210,7 @@
     padding: 1.2%;
     margin: 20px 15%;
     background: #1111;
-    min-height: 86vh;
+    min-height: 84vh;
     font-family: sans-serif;
   }
 
