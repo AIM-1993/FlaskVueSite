@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="hello">
-    <h2>{{tableTitle}}</h2>
+    <h4>{{tableTitle}}</h4>
     <label class="label">最近7天天气情况</label>
     <!--Alert-->
     <div class="callout alert" data-closable v-if="warningFlag">
@@ -49,10 +49,9 @@
 
     <!--着装建议表-->
     <div id="clothing" v-show="cityChoosed">
-      <h3>今日天气</h3>
       <table id="clothing-table" class="table unstriped">
         <thead>
-          <th>天气情况</th>
+          <th>今日天气数据</th>
           <th>贴士</th>
         </thead>
         <tbody>
@@ -173,53 +172,11 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-@media screen and (max-width: 768px) {
-    #container {
-    position: relative;
-    line-height: 20px;
-    padding: 1.2%;
-    margin: 20px 15%;
-    background: #1111;
-    min-height: 86vh;
-    font-family: sans-serif;
-  }
-
-  h2 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-
-  thead tr {
-    background:tan;
-  }
-
-
-  tbody tr:hover {
-    color:steelblue;
-  }
-
-  #chart {
-    width: 50%;
-    height: 50%;
-    display: inline-block;
-  }
-
-  #clothing {
-    margin: 0% 5%;
-    position: absolute;
-    display: inline-block;
-  }
-
-  #clothing-table {
-    margin: 2%;
-  }
-}
-
 @media screen and (min-width: 768px) and (max-width: 992px) {
   #container {
     position: relative;
-    line-height: 20px;
     padding: 1.2%;
-    margin: 20px 15%;
+    margin: 10% 15%;
     background: #1111;
     min-height: 86vh;
     font-family: sans-serif;
@@ -240,25 +197,18 @@
 
   #chart {
     width: 50%;
-    height: 50%;
     display: inline-block;
   }
 
   #clothing {
-    margin: 0% 5%;
+    margin: 0 5%;
     position: absolute;
-    display: inline-block;
-  }
-
-  #clothing-table {
-    margin: 2%;
   }
 }
 
 @media screen and (min-width: 992px){
     #container {
     position: relative;
-    line-height: 20px;
     padding: 1.2%;
     margin: 20px 15%;
     background: #1111;
@@ -281,7 +231,6 @@
 
   #chart {
     width: 50%;
-    height: 50%;
     display: inline-block;
   }
 
